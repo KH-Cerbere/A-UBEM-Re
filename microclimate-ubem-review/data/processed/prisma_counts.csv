@@ -1,0 +1,8 @@
+stage,count,source_file,notes
+identified,0,data\processed\all_records.csv,All normalized records imported from APIs or local files.
+deduplicated,0,data\processed\deduplicated_records.csv,Records after DOI-first and title-similarity deduplication.
+screened,0,data\processed\screening_results.csv,Records present in title/abstract screening table.
+excluded,0,data\processed\screening_results.csv,Rows with screening_decision marked exclude.
+full-text assessed,0,data\processed\evidence_matrix.csv,Rows present in the evidence matrix; includes uncertain records retained for manual review.
+included,0,data\processed\screening_results.csv,Rows with screening_decision marked include.
+uncertain,0,data\processed\screening_results.csv,Rows retained for manual review.

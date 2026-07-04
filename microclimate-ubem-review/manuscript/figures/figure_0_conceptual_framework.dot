@@ -1,0 +1,13 @@
+digraph MicroclimateUBEMFramework {
+        graph [rankdir=LR, bgcolor="white", pad="0.2", nodesep="0.45", ranksep="0.65"];
+        node [shape=box, style="rounded,filled", fillcolor="#F7F7F7", color="#333333", penwidth=1.2,
+              fontname="Arial", fontsize=12, margin="0.14,0.10"];
+        edge [color="#333333", penwidth=1.4, arrowsize=0.8];
+        L1 [label="Microclimate data layer\n- Standard EPW / TMY\n- Urban weather station\n- Fixed sensor network\n- Mobile measurement\n- Remote sensing\n- Reanalysis data\n- CFD / ENVI-met / WRF / UWG\n- Hybrid observational-simulation data"];
+L2 [label="Transformation and coupling layer\n- Weather file replacement\n- Weather morphing\n- UWG-based transformation\n- UCM -> UBEM\n- UBEM -> UCM\n- Two-way coupling / co-simulation\n- Surrogate microclimate modeling\n- Data assimilation"];
+L3 [label="UBEM impact layer\n- Cooling demand\n- Heating demand\n- Peak load\n- Thermal comfort\n- Overheating risk\n- Retrofit performance\n- Carbon emissions\n- Grid interaction"];
+L4 [label="Policy-grade reliability layer\n- Validation\n- Calibration\n- Uncertainty propagation\n- Transferability\n- Computational scalability\n- Data standardization\n- Decision usefulness"];
+        L1 -> L2;
+L2 -> L3;
+L3 -> L4;
+      }
