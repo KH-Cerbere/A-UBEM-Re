@@ -43,10 +43,86 @@
 
     <script>
         // 未来您的图表渲染逻辑（例如获取数据、初始化 ECharts 实例）将写在下面
-        console.log("Visualization container loaded successfully. Ready for data injection.");
-        
-        // 示例：获取容器节点
-        // const chartContainer = document.getElementById('viz-container');
+        const chartContainer = document.getElementById('viz-container');
+        const energyChart = echarts.init(chartContainer);
+
+        const buildingEnergyData = [
+            { type: '住宅', energy: 128 },
+            { type: '商业', energy: 214 },
+            { type: '工业', energy: 306 },
+            { type: '教育', energy: 166 },
+            { type: '医疗', energy: 242 }
+        ];
+
+        const chartOption = {
+            title: {
+                text: '不同建筑类型能耗对比',
+                subtext: '测试数据，单位：kWh/m²·年',
+                left: 'center',
+                top: 24
+            },
+            tooltip: {
+                trigger: 'axis',
+                axisPointer: {
+                    type: 'shadow'
+                },
+                formatter: function (params) {
+                    const item = params[0];
+                    return `${item.name}<br/>能耗强度：${item.value} kWh/m²·年`;
+                }
+            },
+            grid: {
+                left: 72,
+                right: 48,
+                top: 116,
+                bottom: 72
+            },
+            xAxis: {
+                type: 'category',
+                data: buildingEnergyData.map(item => item.type),
+                axisTick: {
+                    alignWithLabel: true
+                }
+            },
+            yAxis: {
+                type: 'value',
+                name: '能耗强度',
+                axisLabel: {
+                    formatter: '{value}'
+                }
+            },
+            series: [
+                {
+                    name: '能耗强度',
+                    type: 'bar',
+                    data: buildingEnergyData.map(item => item.energy),
+                    barMaxWidth: 56,
+                    itemStyle: {
+                        borderRadius: [6, 6, 0, 0],
+                        color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [
+                            { offset: 0, color: '#2f80ed' },
+                            { offset: 1, color: '#56cc9d' }
+                        ])
+                    },
+                    emphasis: {
+                        itemStyle: {
+                            color: '#f2994a'
+                        }
+                    },
+                    label: {
+                        show: true,
+                        position: 'top',
+                        formatter: '{c}'
+                    }
+                }
+            ]
+        };
+
+        energyChart.setOption(chartOption);
+
+        window.addEventListener('resize', function () {
+            energyChart.resize();
+        });
     </script>
 
 </body>
