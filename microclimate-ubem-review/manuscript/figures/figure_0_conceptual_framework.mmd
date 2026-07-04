@@ -1,0 +1,8 @@
+flowchart LR
+  L1["Microclimate data layer<br/>Standard EPW / TMY<br/>Urban weather station<br/>Fixed sensor network<br/>Mobile measurement<br/>Remote sensing<br/>Reanalysis data<br/>CFD / ENVI-met / WRF / UWG<br/>Hybrid observational-simulation data"]
+  L2["Transformation and coupling layer<br/>Weather file replacement<br/>Weather morphing<br/>UWG-based transformation<br/>UCM -> UBEM<br/>UBEM -> UCM<br/>Two-way coupling / co-simulation<br/>Surrogate microclimate modeling<br/>Data assimilation"]
+  L1 --> L2
+  L3["UBEM impact layer<br/>Cooling demand<br/>Heating demand<br/>Peak load<br/>Thermal comfort<br/>Overheating risk<br/>Retrofit performance<br/>Carbon emissions<br/>Grid interaction"]
+  L2 --> L3
+  L4["Policy-grade reliability layer<br/>Validation<br/>Calibration<br/>Uncertainty propagation<br/>Transferability<br/>Computational scalability<br/>Data standardization<br/>Decision usefulness"]
+  L3 --> L4
